@@ -183,6 +183,23 @@ h2 {
   border-radius: 10px;
 }
 
+/* Byline (authors / review line) below the banner */
+.byline {
+  background: #fff;
+  text-align: center;
+  padding: 26px 0 8px;
+  border-bottom: 1px solid var(--border);
+}
+.byline .authors {
+  color: var(--fg);
+  text-shadow: none;
+}
+.byline .author a { color: var(--accent); }
+.byline .affiliations {
+  color: var(--muted);
+  text-shadow: none;
+}
+
 .sec-sub {
   text-align: center;
   color: var(--muted);
