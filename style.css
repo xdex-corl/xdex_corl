@@ -1,0 +1,155 @@
+:root {
+  --fg: #1a1a1a;
+  --muted: #5c5c5c;
+  --accent: #2b6cb0;
+  --accent-dark: #1f4e7a;
+  --bg: #ffffff;
+  --bg-alt: #f6f8fa;
+  --border: #e3e8ee;
+  --max-width: 900px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #f6f8fa 0%, #eef2f7 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 64px 0 48px;
+  text-align: center;
+}
+
+.title {
+  font-family: "Google Sans", "Noto Sans", sans-serif;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 auto 28px;
+  max-width: 820px;
+  letter-spacing: -0.5px;
+}
+
+.authors {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.author { margin: 0 8px; white-space: nowrap; }
+
+.author a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.author a:hover { text-decoration: underline; }
+
+.affiliations {
+  color: var(--muted);
+  font-size: 16px;
+  margin-bottom: 28px;
+}
+.affiliations span { margin: 0 10px; }
+
+/* Buttons */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2d3748;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 15px;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.btn:hover { background: #1a202c; transform: translateY(-1px); }
+.btn .icon { font-size: 16px; }
+
+/* Sections */
+.section {
+  padding: 44px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.section:last-of-type { border-bottom: none; }
+
+h2 {
+  font-family: "Google Sans", "Noto Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 18px;
+  text-align: center;
+}
+
+.abstract { text-align: justify; }
+
+/* Teaser */
+.teaser { text-align: center; }
+.teaser img { max-width: 100%; border-radius: 10px; }
+
+.teaser-placeholder {
+  background: var(--bg-alt);
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 80px 20px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.caption {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 16px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* BibTeX */
+.bibtex {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  overflow-x: auto;
+  font-size: 14px;
+  text-align: left;
+}
+.bibtex code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  color: #2d3748;
+}
+
+/* Footer */
+.footer {
+  background: var(--bg-alt);
+  padding: 28px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+.footer a { color: var(--accent); }
