@@ -164,6 +164,25 @@ h2 {
   border-radius: 10px;
 }
 
+/* Teaser banner */
+.teaser-banner {
+  background: #000;
+  text-align: center;
+  padding: 0 0 24px;
+}
+.teaser-banner img {
+  display: block;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.teaser-caption {
+  color: #cbd5e0;
+  font-size: 15px;
+  margin: 18px auto 0;
+  max-width: 760px;
+}
+
 .sec-sub {
   text-align: center;
   color: var(--muted);
