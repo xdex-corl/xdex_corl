@@ -29,7 +29,6 @@
       <div class="authors">
         <span class="author">Anonymous Authors</span>
       </div>
-
       <div class="affiliations">
         <span>Paper under double-blind review</span>
       </div>
@@ -37,69 +36,151 @@
   </header>
 
   <main>
-    <!-- Teaser -->
-    <section class="container section">
-      <div class="teaser">
-        <!-- Drop a teaser image/gif into assets/teaser.png and uncomment -->
-        <!-- <img src="assets/teaser.png" alt="XDex teaser" /> -->
-        <div class="media-placeholder">Teaser figure / video goes here</div>
-        <p class="caption">
-          XDex learns dexterous grasping policies that transfer across a large
-          and diverse collection of robot hand embodiments — scaling to 1000 hands.
-        </p>
-      </div>
-    </section>
-
     <!-- Overview -->
     <section class="container section">
       <h2>Overview</h2>
       <p class="abstract">
         <!-- TODO: paste the real abstract / overview here. -->
-        We present <strong>XDex</strong>, a framework for learning cross-embodiment
-        dexterous grasping across a large and diverse set of robot hands. 🖐️
-        This is placeholder text — replace it with the project overview.
+        <strong>XDex</strong> learns dexterous grasping policies that transfer across a
+        large and diverse collection of robot hand embodiments — scaling to 1000 hands.
+        Below we show real-world policy deployment on unseen hands and objects,
+        generalization across hand topologies, a teleoperation application via neural
+        retargeting, our data-generation and model design, and grasp-synthesis results.
       </p>
     </section>
 
-    <!-- Technical Summary Video -->
+    <!-- Policy Deployment -->
     <section class="container section">
-      <h2>Technical Summary Video</h2>
-      <div class="video-wrap">
-        <!-- Replace VIDEO_ID with the YouTube id -->
-        <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="XDex summary video" allowfullscreen></iframe> -->
-        <div class="media-placeholder">Embedded summary video goes here</div>
+      <h2>Policy Deployment</h2>
+      <p class="sec-sub">Using an <em>unseen</em> hand (Ability Hand + X-Arm) and <em>unseen</em> objects.</p>
+      <div class="video-grid cols-3">
+        <video src="assets/videos/media6.mp4" autoplay loop muted playsinline controls></video>
+        <video src="assets/videos/media4.mp4" autoplay loop muted playsinline controls></video>
+        <video src="assets/videos/media5.mp4" autoplay loop muted playsinline controls></video>
+        <video src="assets/videos/media1.mp4" autoplay loop muted playsinline controls></video>
+        <video src="assets/videos/media2.mp4" autoplay loop muted playsinline controls></video>
+        <video src="assets/videos/media3.mp4" autoplay loop muted playsinline controls></video>
       </div>
     </section>
 
-    <!-- Grasping Demonstrations -->
+    <!-- Topology Generalization -->
     <section class="container section">
-      <h2>Grasping Demonstrations</h2>
-      <p>Qualitative grasping results across many hand embodiments.</p>
-      <div class="media-placeholder">Demonstration videos / gallery go here</div>
+      <h2>Generalize to Different Topologies</h2>
+      <div class="col-pair">
+        <div class="col">
+          <h3 class="col-title">3-Finger XHand</h3>
+          <div class="video-grid cols-1">
+            <video src="assets/videos/media10.mp4" autoplay loop muted playsinline controls></video>
+            <video src="assets/videos/media9.mp4" autoplay loop muted playsinline controls></video>
+          </div>
+        </div>
+        <div class="col">
+          <h3 class="col-title">2-Finger XHand</h3>
+          <div class="video-grid cols-1">
+            <video src="assets/videos/media8.mp4" autoplay loop muted playsinline controls></video>
+            <video src="assets/videos/media7.mp4" autoplay loop muted playsinline controls></video>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Real-World Deployment -->
+    <!-- Teleoperation -->
     <section class="container section">
-      <h2>Real-World Deployment</h2>
-      <p>Policies deployed on physical robot hardware.</p>
-      <div class="media-placeholder">Real-world deployment videos go here</div>
+      <h2>Application: Teleoperation via Neural Retargeting</h2>
+      <div class="col-pair">
+        <div class="col">
+          <h3 class="col-title">Twin-Objects Teleoperation <span class="muted-title">w/o</span> Neural Retargeting</h3>
+          <video src="assets/videos/media11.mp4" autoplay loop muted playsinline controls></video>
+          <p class="caption">
+            Standard retargeting, due to the lack of object features, cannot ensure
+            successful task completion.
+          </p>
+        </div>
+        <div class="col">
+          <h3 class="col-title">Twin-Objects Teleoperation <span class="muted-title">with</span> Neural Retargeting</h3>
+          <video src="assets/videos/media12.mp4" autoplay loop muted playsinline controls></video>
+          <p class="caption">
+            Our model takes human hand keypoints as input, conditioned on the object
+            features and the geometry of the robot hand, ensuring the robot hand mirrors
+            the human hand's pose while still completing the task.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <!-- Cross-Embodiment Generalization -->
-    <section class="container section">
-      <h2>Cross-Embodiment Generalization</h2>
-      <p>Transfer across unseen hand morphologies and objects.</p>
-      <div class="media-placeholder">Generalization results go here</div>
+    <!-- Method divider -->
+    <section class="container section divider">
+      <h2 class="divider-title">Method</h2>
     </section>
 
-    <!-- Method -->
+    <!-- Paired Data Generation -->
     <section class="container section">
-      <h2>Method</h2>
-      <p>
-        <!-- TODO: describe the approach and add the method diagram under assets/. -->
-        Add a description of the approach here, along with the method diagram.
+      <h2>Paired Data Generation</h2>
+      <figure class="figure">
+        <img src="assets/images/data_generation.png" alt="Paired data generation pipeline" />
+        <figcaption>
+          Source hand poses are obtained via optimization (force closure, SDF, distance,
+          joint-limit and self-collision losses), then paired target hand poses are
+          produced via retargeting.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Embodiment Generation -->
+    <section class="container section">
+      <h2>Embodiment Generation</h2>
+      <figure class="figure">
+        <img src="assets/images/embodiment_generation.png" alt="Embodiment generation via URDF randomization" />
+        <figcaption>
+          Geometry and topology variations are generated from the original robot hands and
+          the MANO hand via URDF randomization.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Model Architecture -->
+    <section class="container section">
+      <h2>Model Architecture</h2>
+      <figure class="figure">
+        <img src="assets/images/architecture.png" alt="XDex model architecture" />
+        <figcaption>
+          The generative model takes link poses and object point clouds as input. Each link
+          pose is concatenated with its object feature to form a link token; the sampled
+          latent <em>z</em> and object feature form a source token, and the decoder uses the
+          source token with link-geometry query tokens to predict link poses.
+        </figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="assets/images/consistency.png" alt="Consistency mechanisms" />
+        <figcaption>
+          Two explicit mechanisms enforce consistency: (left) a retargeting loss and
+          (right) an embedding loss.
+        </figcaption>
+      </figure>
+      <p class="abstract">
+        We further leverage the model to generate additional grasp poses (validated in
+        simulation) to augment the dataset, significantly accelerating data generation:
+        grasps are optimized for a single hand and retargeted to 50 hands, while the
+        network generates grasp poses for the remaining hands.
       </p>
-      <div class="media-placeholder">Method diagram goes here</div>
+    </section>
+
+    <!-- Results divider -->
+    <section class="container section divider">
+      <h2 class="divider-title">Results</h2>
+    </section>
+
+    <!-- Results -->
+    <section class="container section">
+      <h2>Grasp Synthesis Results</h2>
+      <figure class="figure">
+        <img src="assets/images/results.png" alt="Grasp synthesis results table" />
+        <figcaption>
+          We evaluate grasp-synthesis performance across Quality, Consistency, and
+          Diversity. Our method outperforms both prior baselines and ablated variants
+          across most metrics.
+        </figcaption>
+      </figure>
     </section>
 
     <!-- BibTeX -->

@@ -164,6 +164,84 @@ h2 {
   border-radius: 10px;
 }
 
+.sec-sub {
+  text-align: center;
+  color: var(--muted);
+  margin: -6px 0 22px;
+  font-size: 16px;
+}
+.sec-sub em { color: #c0392b; font-style: normal; font-weight: 600; }
+
+/* Video grids */
+.video-grid {
+  display: grid;
+  gap: 14px;
+}
+.video-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.video-grid.cols-1 { grid-template-columns: 1fr; }
+
+.video-grid video {
+  width: 100%;
+  border-radius: 8px;
+  background: #000;
+  display: block;
+}
+
+/* Two-column layout (topology / teleop) */
+.col-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.col video {
+  width: 100%;
+  border-radius: 8px;
+  background: #000;
+  display: block;
+}
+.col-title {
+  font-family: "Google Sans", "Noto Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 12px;
+}
+.muted-title { color: #c0392b; }
+
+@media (max-width: 720px) {
+  .video-grid.cols-3 { grid-template-columns: 1fr 1fr; }
+  .col-pair { grid-template-columns: 1fr; }
+}
+
+/* Figures */
+.figure { margin: 0 0 28px; text-align: center; }
+.figure img {
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.figure figcaption {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 12px;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Section dividers */
+.divider {
+  background: var(--bg-alt);
+  text-align: center;
+  padding: 30px 24px;
+}
+.divider-title {
+  margin: 0;
+  font-size: 32px;
+  color: #c0392b;
+}
+
 /* BibTeX */
 .bibtex {
   background: var(--bg-alt);
